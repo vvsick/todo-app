@@ -1,0 +1,101 @@
+@import 'bulma/css/bulma.min.css';
+@import 'bulma-modal-fx/dist/css/modal-fx.min.css';
+@import '@asika32764/vue-animate/dist/vue-animate.css';
+
+:root {
+  --bulma-body-background-color: #060805;
+  --animate-duration: .4s;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: transparent;
+}
+
+.container {
+  width: 70%;
+}
+
+.box {
+  background: #060805;
+  box-shadow: none;
+
+  &.level {
+    width: 300px;
+    margin: 10px auto 10px;
+    padding: 10px;
+
+    & .level-item {
+      position: relative;
+      z-index: 1;
+    }
+  }
+}
+
+.level-item {
+
+  & > a {
+    color: #fff;
+    transition: all 0.5;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 50%;
+      transform: translate(-50%, 0);
+      width: 0;
+      height: 2px;
+      background: rgba(164, 200, 158, 1);
+      transition: all 0.2s;
+    }
+
+    &:hover {
+      color: rgba(164, 200, 158, .7);
+
+      &::after {
+        width: 80%;
+      }
+    }
+
+    &.is-active {
+      color: rgba(164, 200, 158, 1);
+
+      &::after {
+        width: 80%;
+      }
+    }
+  }
+}
+
+.box-wrapper {
+  margin: 16px 0 16px;
+  padding: 1px;
+  border-radius: var(--bulma-radius-large);
+  background-image: linear-gradient(0deg, rgba(56, 106, 48, 0), rgba(56, 106, 48, .4));
+
+  & .box {
+    background-image: linear-gradient(0deg, rgba(164, 200, 158, .12), rgba(164, 200, 158, 0));
+    border-width: 1px;
+  }
+}
+
+.button {
+
+  &:hover {
+    background-color: rgba(164, 200, 158, 0.3);
+    border-color: rgba(#fff , 0.3);
+  }
+}
+
+.column {
+  &.right {
+    text-align: right;
+
+    @media screen and (max-width: 768px) {
+      text-align: left;
+    }
+  }
+}
